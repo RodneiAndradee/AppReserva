@@ -91,7 +91,6 @@ class BookingActivity : AppCompatActivity() {
 
             val horaCompleta = "$horaInicio:$minutoInicio - $horaFim:$minutoFim"
 
-            // 🔒 Verifica duplicidade antes de criar
             FirebaseFirestore.getInstance().collection("reservations")
                 .whereEqualTo("roomId", salaSelecionada)
                 .whereEqualTo("date", dataSelecionada)
@@ -119,13 +118,28 @@ class BookingActivity : AppCompatActivity() {
                     Toast.makeText(this, "Erro ao verificar disponibilidade", Toast.LENGTH_SHORT).show()
                 }
         }
-        // Lógica para salvar a reserva
+
         bookingViewModel.bookingResult.observe(this) { success ->
             if (success) {
                 Toast.makeText(this, "Reserva salva, indo para tela final...", Toast.LENGTH_SHORT).show()
+
+                val salaSelecionada = spinnerSala.selectedItem.toString()
+                val horaInicio = etHoraInicio.text.toString()
+                val minutoInicio = etMinutoInicio.text.toString()
+                val horaFim = etHoraFim.text.toString()
+                val minutoFim = etMinutoFim.text.toString()
+                val professor = etProfessor.text.toString()
+                val anotacoes = etAnotacoes.text.toString()
+                val horaCompleta = "$horaInicio:$minutoInicio - $horaFim:$minutoFim"
+
                 val intent = Intent(this, SuccessActivity::class.java)
-                intent.putExtra("reservaData", dataSelecionada)
+                intent.putExtra("sala", salaSelecionada)
+                intent.putExtra("data", dataSelecionada)
+                intent.putExtra("horario", horaCompleta)
+                intent.putExtra("professor", professor)
+                intent.putExtra("anotacoes", anotacoes)
                 startActivity(intent)
+
                 setResult(RESULT_OK)
                 finish()
             } else {
@@ -138,6 +152,7 @@ class BookingActivity : AppCompatActivity() {
         }
     }
 }
+
 
 
 
