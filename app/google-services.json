@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "315996468012",
+    "project_id": "reservaapp-f5509",
+    "storage_bucket": "reservaapp-f5509.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:315996468012:android:fae8409cf483d4403a3289",
+        "android_client_info": {
+          "package_name": "com.example.appreserva"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjhiMLobLSXtK0irY5vNmk05-N7PeXhso"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
