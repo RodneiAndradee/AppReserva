@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E6F0FF"
-    tools:context=".CreateAppointmentActivity">
+    tools:context=".ui.booking.BookingActivity">
 
     <!-- Toolbar -->
     <androidx.appcompat.widget.Toolbar
@@ -34,6 +34,7 @@
                 android:src="@drawable/ic_arrow_back" />
 
             <TextView
+                android:id="@+id/tvTituloData"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
@@ -67,35 +68,35 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
                 android:text="Selecione a sala"
                 android:textColor="#666666"
-                android:textSize="16sp"
-                android:layout_marginBottom="8dp" />
+                android:textSize="16sp" />
 
             <Spinner
                 android:id="@+id/spinnerSala"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/background_spinner"
-                android:padding="12dp"
-                android:layout_marginBottom="24dp" />
+                android:layout_marginBottom="24dp"
+                android:padding="12dp" />
+
 
             <!-- Horário do Compromisso -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
                 android:text="Horário do Compromisso"
                 android:textColor="#333333"
                 android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="16dp" />
+                android:textStyle="bold" />
 
             <!-- Início do Horário -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="16dp">
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="0dp"
@@ -152,8 +153,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="24dp">
+                android:layout_marginBottom="24dp"
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="0dp"
@@ -210,16 +211,16 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_marginBottom="8dp"
                 android:gravity="center_vertical"
-                android:layout_marginBottom="8dp">
+                android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:src="@drawable/ic_file"
                     android:layout_marginEnd="12dp"
-                    android:contentDescription="Material da Aula" />
+                    android:contentDescription="Material da Aula"
+                    android:src="@drawable/ic_file" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -234,15 +235,17 @@
                 android:id="@+id/layoutSelectFile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
                 android:background="@drawable/campos_arq_anot"
-                android:padding="12dp"
-                android:layout_marginBottom="24dp">
+                android:padding="12dp">
 
-                <TextView
+                <EditText
+                    android:id="@+id/etMaterial"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:text="Pré-visualização da anotação..."
+                    android:hint="Pré-visualização da anotação..."
+                    android:inputType="text"
                     android:textColor="#999999"
                     android:textSize="14sp" />
 
@@ -259,20 +262,22 @@
 
             <!-- Professor -->
             <LinearLayout
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_marginBottom="8dp"
                 android:gravity="center_vertical"
-                android:layout_marginBottom="8dp">
+                android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:src="@drawable/ic_person"
                     android:layout_marginEnd="12dp"
-                    android:contentDescription="Professor" />
+                    android:contentDescription="Professor"
+                    android:src="@drawable/ic_person" />
 
                 <TextView
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Professor"
@@ -281,29 +286,31 @@
                     android:textStyle="bold" />
             </LinearLayout>
 
-            <Spinner
-                android:id="@+id/spinnerProfessor"
+            <EditText
+                android:id="@+id/etProfessor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
                 android:background="@drawable/background_spinner"
+                android:hint="Digite seu nome"
                 android:padding="12dp"
-                android:hint="Selecione o professor"
-                android:layout_marginBottom="24dp" />
+                android:focusable="false"
+                android:inputType="textEmailAddress" />
 
             <!-- Anotações -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_marginBottom="8dp"
                 android:gravity="center_vertical"
-                android:layout_marginBottom="8dp">
+                android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:src="@drawable/ic_edit"
                     android:layout_marginEnd="12dp"
-                    android:contentDescription="Anotações" />
+                    android:contentDescription="Anotações"
+                    android:src="@drawable/ic_edit" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -317,9 +324,9 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
                 android:background="@drawable/campos_arq_anot"
-                android:padding="12dp"
-                android:layout_marginBottom="24dp">
+                android:padding="12dp">
 
                 <EditText
                     android:id="@+id/etAnotacoes"
@@ -345,7 +352,7 @@
 
             <!-- Botão de Salvar -->
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnSalvar"
+                android:id="@id/buttonReserve"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/botao_laranja"
@@ -359,4 +366,18 @@
                 android:textSize="16sp" />
         </LinearLayout>
     </ScrollView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="0dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="0dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
