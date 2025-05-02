@@ -40,7 +40,7 @@
                 android:layout_centerInParent="true"
                 android:text="Dia 22"
                 android:textColor="#333333"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
         </RelativeLayout>
     </androidx.appcompat.widget.Toolbar>
