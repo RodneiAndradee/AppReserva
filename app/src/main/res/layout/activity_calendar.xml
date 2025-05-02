@@ -103,13 +103,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:fillViewport="true">
+                android:fillViewport="true"
+                android:scrollbars="vertical"
+                android:overScrollMode="ifContentScrolls">
 
                 <LinearLayout
                     android:id="@+id/layoutReservas"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical" />
+                    android:orientation="vertical"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="8dp" />
             </ScrollView>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
