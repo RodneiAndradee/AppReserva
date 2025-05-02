@@ -61,7 +61,7 @@ class BookingActivity : AppCompatActivity() {
 
         tvTituloData.text = "Dia $dataFormatada"
 
-        val salas = listOf("Sala 101", "Sala 102", "Sala 103", "Sala 104", "Sala 105", "Sala 201", "Sala 202")
+        val salas = listOf("Sala 01", "Sala 02", "Sala 03", "Sala 04", "Sala 05", "Sala 06", "Sala 07")
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, salas)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerSala.adapter = adapter
@@ -119,7 +119,7 @@ class BookingActivity : AppCompatActivity() {
                     Toast.makeText(this, "Erro ao verificar disponibilidade", Toast.LENGTH_SHORT).show()
                 }
         }
-
+        // Lógica para salvar a reserva
         bookingViewModel.bookingResult.observe(this) { success ->
             if (success) {
                 Toast.makeText(this, "Reserva salva, indo para tela final...", Toast.LENGTH_SHORT).show()
