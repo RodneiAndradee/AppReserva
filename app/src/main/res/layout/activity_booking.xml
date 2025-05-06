@@ -70,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:text="Selecione a sala"
-                android:textColor="#666666"
+                android:textColor="#040404"
                 android:textSize="16sp" />
 
             <Spinner
@@ -78,6 +78,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="24dp"
+                android:background="#FBFAFA"
                 android:padding="12dp" />
 
 
@@ -246,7 +247,7 @@
                     android:layout_centerVertical="true"
                     android:hint="Pré-visualização da anotação..."
                     android:inputType="text"
-                    android:textColor="#999999"
+                    android:textColor="#0D0D0D"
                     android:textSize="14sp" />
 
                 <ImageButton
