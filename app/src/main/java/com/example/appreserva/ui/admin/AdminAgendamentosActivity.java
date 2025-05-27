@@ -1,4 +1,4 @@
-package com.example.reservaplusapp;
+package com.example.AppReserva;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.appreserva.R;
+
 public class AdminAgendamentosActivity extends AppCompatActivity {
 
     RecyclerView solicitacoesRecycler;
@@ -14,7 +16,7 @@ public class AdminAgendamentosActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.admin_agendamentos);
+        setContentView(R.layout.adm_agendamentos);
 
         solicitacoesRecycler = findViewById(R.id.solicitacoesRecycler);
         solicitacoesRecycler.setLayoutManager(new LinearLayoutManager(this));
