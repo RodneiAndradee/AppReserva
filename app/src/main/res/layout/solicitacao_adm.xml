@@ -1,81 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ConstraintLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:orientation="vertical"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:padding="24dp">
+
+<TextView
+    android:text="LABORATÓRIO 3"
+    android:textSize="20sp"
+    android:textStyle="bold"
+    android:layout_marginBottom="8dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"/>
+
+<TextView
+    android:text="Data: 24/03"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"/>
+
+<TextView
+    android:text="Horário: 19:45 - 20:30"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"/>
+
+<TextView
+    android:text="Aula: Programação Mobile"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"/>
+
+<TextView
+    android:text="Mayck Oliveira da Silva"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"/>
+
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_marginTop="24dp"
+    android:gravity="center"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="24dp">
+    android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/tvSala"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="LABORATÓRIO 3"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/tvData"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Data: 24/03"
-        app:layout_constraintTop_toBottomOf="@id/tvSala"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/tvHorario"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Horário: 19:45 - 20:30"
-        app:layout_constraintTop_toBottomOf="@id/tvData"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/tvAula"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Aula: Programação Mobile"
-        app:layout_constraintTop_toBottomOf="@id/tvHorario"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/tvProfessor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Mayck Oliveira da Silva"
-        app:layout_constraintTop_toBottomOf="@id/tvAula"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <LinearLayout
-        android:id="@+id/btnContainer"
+    <Button
+        android:id="@+id/btnRecusar"
+        android:text="RECUSAR"
+        android:backgroundTint="@android:color/holo_red_light"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginTop="24dp"
-        app:layout_constraintTop_toBottomOf="@id/tvProfessor"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        android:layout_weight="1"
+        android:layout_height="wrap_content"/>
 
-        <Button
-            android:id="@+id/btnRecusar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="RECUSAR"
-            android:backgroundTint="@android:color/holo_red_light" />
+    <Button
+        android:id="@+id/btnAprovar"
+        android:text="APROVAR"
+        android:backgroundTint="@android:color/holo_green_light"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_marginStart="12dp"
+        android:layout_height="wrap_content"/>
+</LinearLayout>
+</ConstraintLayout>
 
-        <Button
-            android:id="@+id/btnAprovar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginStart="12dp"
-            android:text="APROVAR"
-            android:backgroundTint="@android:color/holo_green_light" />
-    </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
