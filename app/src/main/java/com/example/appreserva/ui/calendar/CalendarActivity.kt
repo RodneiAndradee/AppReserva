@@ -5,6 +5,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.Gravity
+import android.view.MenuItem				
 import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -16,12 +17,16 @@ import com.google.firebase.firestore.FirebaseFirestore
 import java.text.SimpleDateFormat
 import java.util.*
 
+import com.example.appreserva.data.repository.AuthRepository
+import com.example.appreserva.ui.login.LoginActivity
+import com.example.appreserva.ui.admin.ApprovedRejectedBookingsActivity			
 class CalendarActivity : AppCompatActivity() {
 
     private var dataSelecionada: String = ""
     private lateinit var layoutReservas: LinearLayout
     private val firestore = FirebaseFirestore.getInstance()
 
+	private lateinit var icMenu: ImageView
     private val novaReservaLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) {
@@ -38,6 +43,9 @@ class CalendarActivity : AppCompatActivity() {
         val fabEdit = findViewById<FloatingActionButton>(R.id.fabEdit)
         layoutReservas = findViewById(R.id.layoutReservas)
 
+		icMenu = findViewById(R.id.icMenu) // Inicializar icMenu
+
+        setupMenuButton() // Chamar a função para configurar o botão de menu
         val calendar = Calendar.getInstance()
         calendar.set(Calendar.MONTH, Calendar.JULY)
         calendar.set(Calendar.DAY_OF_MONTH, 22)
@@ -64,6 +72,43 @@ class CalendarActivity : AppCompatActivity() {
         atualizarReservas()
     }
 
+	private fun setupMenuButton() {
+        icMenu.setOnClickListener { view ->
+            val popupMenu = PopupMenu(this, view)
+            // Infla o menu_admin.xml
+            popupMenu.menuInflater.inflate(R.menu.menu_admin, popupMenu.menu)
+
+            popupMenu.setOnMenuItemClickListener { item: MenuItem ->
+                when (item.itemId) {
+                    R.id.action_profile -> { // ID do item "Perfil" no menu_admin.xml
+                        Toast.makeText(this, "Perfil clicado!", Toast.LENGTH_SHORT).show()
+                        // Adicione a Intent para a Activity de Perfil aqui
+                        true
+                    }
+                    R.id.action_settings -> { // ID do item "Configurações" no menu_admin.xml
+                        Toast.makeText(this, "Configurações clicado!", Toast.LENGTH_SHORT).show()
+                        // Adicione a Intent para a Activity de Configurações aqui
+                        true
+                    }
+                    R.id.action_reservas -> { // ID do item "Reservas" no menu_admin.xml
+                        val intent = Intent(this, ApprovedRejectedBookingsActivity::class.java)
+                        startActivity(intent)
+                        true
+                    }
+                    R.id.action_logout -> { // ID do item "Sair do APP" no menu_admin.xml
+                        AuthRepository(FirebaseAuth.getInstance()).logout()
+                        val intent = Intent(this, LoginActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        startActivity(intent)
+                        finish()
+                        true
+                    }
+                    else -> false
+                }
+            }
+            popupMenu.show()
+        }
+    }
     private fun atualizarReservas() {
         layoutReservas.removeAllViews()
         val userEmail = FirebaseAuth.getInstance().currentUser?.email ?: return

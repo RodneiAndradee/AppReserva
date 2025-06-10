@@ -74,7 +74,7 @@ class BookingActivity : AppCompatActivity() {
             val minutoFim = etMinutoFim.text.toString()
             val material = etMaterial.text.toString()
             val professor = etProfessor.text.toString()
-            val anotacoes = etAnotacoes.text.toString()
+            val notes = etAnotacoes.text.toString()
 
             val inicioEmMinutos = horaInicio.toIntOrNull()?.times(60)?.plus(minutoInicio.toIntOrNull() ?: -1) ?: -1
             val fimEmMinutos = horaFim.toIntOrNull()?.times(60)?.plus(minutoFim.toIntOrNull() ?: -1) ?: -1
@@ -108,8 +108,9 @@ class BookingActivity : AppCompatActivity() {
                         date = dataSelecionada,
                         time = horaCompleta,
                         material = material,
-                        notes = anotacoes,
-                        professor = professor
+                        notes = notes,
+                        professor = professor,
+						status = "pending"
                     )
 
                     bookingViewModel.bookReservation(reserva)
@@ -129,7 +130,7 @@ class BookingActivity : AppCompatActivity() {
                 val horaFim = etHoraFim.text.toString()
                 val minutoFim = etMinutoFim.text.toString()
                 val professor = etProfessor.text.toString()
-                val anotacoes = etAnotacoes.text.toString()
+                val notes = etAnotacoes.text.toString()
                 val horaCompleta = "$horaInicio:$minutoInicio - $horaFim:$minutoFim"
 
                 val intent = Intent(this, SuccessActivity::class.java)
@@ -137,7 +138,7 @@ class BookingActivity : AppCompatActivity() {
                 intent.putExtra("data", dataSelecionada)
                 intent.putExtra("horario", horaCompleta)
                 intent.putExtra("professor", professor)
-                intent.putExtra("anotacoes", anotacoes)
+                intent.putExtra("notes", notes)
                 startActivity(intent)
 
                 setResult(RESULT_OK)

@@ -22,7 +22,8 @@ class BookingViewModel(private val reservationRepository: ReservationRepository)
             "time" to reservation.time,
             "material" to reservation.material,
             "notes" to reservation.notes,
-            "professor" to reservation.professor
+            "professor" to reservation.professor,
+			"status" to "pending"
         )
 
         reservationRepository.bookReservation(reservationData)
