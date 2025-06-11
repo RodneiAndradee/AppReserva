@@ -71,7 +71,7 @@ Para configurar e executar o projeto, você precisará:
 
 1.  **Clone o seu Fork:**
     ```bash
-    git clone [https://github.com/GitRael/AppReserva.git](https://github.com/GitRael/AppReserva.git)
+    git clone [(https://github.com/RodneiAndradee/AppReserva.git)]
     cd AppReserva
     ```
 2.  **Configure o Firebase:**
